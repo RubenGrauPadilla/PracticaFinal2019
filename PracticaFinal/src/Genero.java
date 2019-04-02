@@ -18,6 +18,10 @@ public enum Genero {
         this.nombre = nombre;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     @Override
     public String toString() {
         return "Genero{" +
