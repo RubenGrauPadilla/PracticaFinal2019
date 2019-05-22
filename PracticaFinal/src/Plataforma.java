@@ -9,6 +9,7 @@ public enum Plataforma {
     private final String nombre;
 
     Plataforma(String nombre) {
+
         this.nombre = nombre;
     }
 }

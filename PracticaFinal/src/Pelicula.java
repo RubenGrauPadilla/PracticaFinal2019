@@ -50,4 +50,5 @@ class PeliculaPlataformasOnline extends Pelicula {
     public Plataforma getPlataforma() {
         return plataforma;
     }
+
 }

@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class Usuario {
     private String nombreUsuario;
     private String contrasenya;

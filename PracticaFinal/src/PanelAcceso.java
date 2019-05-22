@@ -10,6 +10,7 @@ public class PanelAcceso extends JFrame {
         JButton botonRegistro = new JButton();
         JButton botonAcceso = new JButton();
 
+
         panelAcceso.add(identificador);
         panelAcceso.add(compruebaIdentificador);
         panelAcceso.add(botonAcceso);
