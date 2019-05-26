@@ -5,19 +5,17 @@ import java.util.List;
 
 public class Usuario {
     private String nombreUsuario;
-    private List<Pelicula> lista=new ArrayList<>();
+    private List<Pelicula> listaPeliculas;
     private final String nombre;
-    private final String apellido1;
-    private final String apellido2;
+    private final String apellidos;
     private final String identificador;
     private final Date fechaIngreso;
 
-    public Usuario(String nombreUsuario, List<Pelicula> lista, String nombre, String apellido1, String apellido2, String identificador, Date fechaIngreso) {
+    public Usuario(String nombreUsuario, String nombre, String apellidos, String identificador, Date fechaIngreso) {
         this.nombreUsuario = nombreUsuario;
-        this.lista = lista;
+        this.listaPeliculas = new ArrayList<>();
         this.nombre = nombre;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
+        this.apellidos = apellidos;
         this.identificador = identificador;
         this.fechaIngreso = fechaIngreso;
     }
@@ -26,20 +24,16 @@ public class Usuario {
         return nombreUsuario;
     }
 
-    public List<Pelicula> getLista() {
-        return lista;
+    public List<Pelicula> getListaPeliculas() {
+        return listaPeliculas;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getApellido1() {
-        return apellido1;
-    }
-
-    public String getApellido2() {
-        return apellido2;
+    public String getApellidos() {
+        return apellidos;
     }
 
     public String getIdentificador() {

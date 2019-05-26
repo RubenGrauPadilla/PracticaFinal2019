@@ -47,8 +47,8 @@ class PeliculaPlataformasOnline extends Pelicula {
         this.plataforma = plataforma;
     }
 
-    public Plataforma getPlataforma() {
-        return plataforma;
+    public String getPlataforma() {
+        return plataforma.getNombre();
     }
 
 }
