@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.TreeMap;
 
 public class ProgramaPrincipal extends JFrame{
     public static void main(String[] args) {
+        Map<String, String> accesoAplicacion = new TreeMap<>();
 
         JFrame panelAcceso = new JFrame();
         panelAcceso.setLayout(new FlowLayout());
@@ -55,10 +57,16 @@ public class ProgramaPrincipal extends JFrame{
                         usuario[1]=apellidosIntroducidos.getText();
                         usuario[2]=correoIntroducido.getText();
                         usuario[3]=fechaNacimientoIntroducida.getText();
-                        try(BufferedWriter bw = new BufferedWriter(new FileWriter("Usuarios"))){
+                        File usuarios = new File("Usuario");
+                        try(BufferedWriter bw = new BufferedWriter(new FileWriter(usuarios.getAbsoluteFile(),true))){
+                            if(!usuarios.exists()){
+                                usuarios.createNewFile();
+                            }
                             for (int i = 0; i < 4; i++) {
                                 bw.write(usuario[i]+"\n");
                             }
+                            String identificacion=crearIdentificador();
+                            accesoAplicacion.put(identificacion,correoIntroducido.getText());
                             panelRegistro.setVisible(false);
                         } catch (IOException e1) {
                             e1.printStackTrace();
@@ -74,18 +82,31 @@ public class ProgramaPrincipal extends JFrame{
                 panelRegistro.setLocationRelativeTo(null);
             }
         });
-
+//Botón para acceder
         botonAcceso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Map<String, String> accesoAplicacion = new TreeMap<>();
 
-                JDialog interfazUsuario = new JDialog();
-                JButton añadirCancion = new JButton();
+                JPanel interfazUsuario = new JPanel();
+                JDialog lista = new JDialog();
+                JButton anyadirCancion = new JButton();
                 JButton eliminarCancion = new JButton();
+
+
+                anyadirCancion.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                    }
+                });
+                eliminarCancion.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                    }
+                });
             }
         });
-
 
 
         panelAcceso.setBounds(0,0,250,155);
@@ -94,5 +115,18 @@ public class ProgramaPrincipal extends JFrame{
         panelAcceso.setLocationRelativeTo(null);
         panelAcceso.setVisible(true);
 
+    }
+
+
+    public static String crearIdentificador(){
+        int numeroIdentificador1 = 0;
+        int numeroIdentificador2 = 0;
+        String identificador = "";
+        while(numeroIdentificador1<10000 && numeroIdentificador2<10000){
+            numeroIdentificador2 = (int) Math.floor(Math.random()*99999+1);
+            numeroIdentificador1 = (int) Math.floor(Math.random()*99999+1);
+            identificador = numeroIdentificador1 + "" + numeroIdentificador2;
+        }
+        return identificador;
     }
 }
