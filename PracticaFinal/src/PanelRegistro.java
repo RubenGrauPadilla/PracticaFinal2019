@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class PanelRegistro extends JDialog{
-    JDialog panelRegistro = new JDialog();
+    JDialog panelRegistro;
     JLabel nombre = new JLabel("Nombre:");
     JTextField nombreIntroducido = new JTextField(15);
     JLabel apellidos = new JLabel("Apellidos:");
@@ -20,6 +20,7 @@ public class PanelRegistro extends JDialog{
     JButton registrarse = new JButton("Registrarse");
 
     PanelRegistro() {
+        panelRegistro=this;
         add(nombre);
         add(nombreIntroducido);
         add(apellidos);
