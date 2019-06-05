@@ -16,12 +16,27 @@ public class PanelAcceso extends JFrame{
         add(botonAcceso);
         add(botonRegistro);
 
+
+        botonAcceso.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                InterfazUsuario interfazUsuario = new InterfazUsuario();
+            }
+        });
+
+
+
+
         botonRegistro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PanelRegistro panelRegistro = new PanelRegistro();
             }
         });
+
+
+
+
         setBounds(0,0,250,155);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
