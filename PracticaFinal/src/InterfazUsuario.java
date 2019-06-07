@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 public class InterfazUsuario extends JDialog{
     JDialog interfazUsuario;
     JPanel lista = new JPanel();
-    JButton anyadirPelicula = new JButton();
+    JButton anyadirPelicula = new JButton("Añadir pelicula");
 
     InterfazUsuario() {
         interfazUsuario=this;
         setLayout(new BorderLayout());
-        add(lista);
-        add(anyadirPelicula, BorderLayout.);
-        setBounds(0,0,500,500);
+        add(lista,BorderLayout.CENTER);
+        add(anyadirPelicula, BorderLayout.SOUTH);
+        setBounds(0,0,500,400);
         setVisible(true);
         setResizable(false);
         setLocationRelativeTo(null);
@@ -22,7 +22,8 @@ public class InterfazUsuario extends JDialog{
         anyadirPelicula.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PanelPelicula panelPelicula = new PanelPelicula();
+
+                PanelAnyadirPelicula panelAnyadirPelicula = new PanelAnyadirPelicula();
             }
         });
     }

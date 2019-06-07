@@ -2,10 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class PanelAcceso extends JFrame{
+    Map<String,String> accesoAplicacion = new TreeMap<>();
     PanelAcceso(){
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout(2,2));
         JLabel identificador = new JLabel("Introduzca su nº de identificación");
         JTextField compruebaIdentificador = new JTextField(15);
         JButton botonAcceso = new JButton("Iniciar sesión");
@@ -20,6 +23,7 @@ public class PanelAcceso extends JFrame{
         botonAcceso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 InterfazUsuario interfazUsuario = new InterfazUsuario();
             }
         });
@@ -35,12 +39,13 @@ public class PanelAcceso extends JFrame{
         });
 
 
-
-
-        setBounds(0,0,250,155);
+        pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+    public void anyadirUsuarioMapa(String identificador,String nombre){
+        accesoAplicacion.put(identificador, nombre);
     }
 }

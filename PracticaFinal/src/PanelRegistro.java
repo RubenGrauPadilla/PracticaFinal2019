@@ -17,7 +17,10 @@ public class PanelRegistro extends JDialog{
     JTextField correoIntroducido = new JTextField(15);
     JLabel fechaNacimiento = new JLabel("Fecha de nacimiento:");
     JTextField fechaNacimientoIntroducida = new JTextField(15);
+    JLabel identificador = new JLabel("Identificador de 10 dígitos");
+    JTextField identificadorIntroducido = new JTextField(15);
     JButton registrarse = new JButton("Registrarse");
+
 
     PanelRegistro() {
         panelRegistro=this;
@@ -29,9 +32,11 @@ public class PanelRegistro extends JDialog{
         add(correoIntroducido);
         add(fechaNacimiento);
         add(fechaNacimientoIntroducida);
+        add(identificador);
+        add(identificadorIntroducido);
         add(registrarse);
 
-        setBounds(0, 0, 200, 260);
+        setBounds(0, 0, 200, 310);
         setLayout(new FlowLayout());
         setVisible(true);
         setResizable(false);
