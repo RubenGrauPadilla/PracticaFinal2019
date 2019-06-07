@@ -24,6 +24,11 @@ public class InterfazUsuario extends JDialog{
             public void actionPerformed(ActionEvent e) {
 
                 PanelAnyadirPelicula panelAnyadirPelicula = new PanelAnyadirPelicula();
+                panelAnyadirPelicula.setModal(true);
+                panelAnyadirPelicula.setVisible(true);
+                Pelicula p=panelAnyadirPelicula.getPelicula();
+                //En p está la pellícula nueva
+
             }
         });
     }

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelAnyadirPelicula extends JDialog {
+    Pelicula p;
 
     JLabel nombrePelicula = new JLabel("Nombre de la pelicula");
     JTextField nombreIntroducido = new JTextField();
@@ -27,7 +28,6 @@ public class PanelAnyadirPelicula extends JDialog {
         add(plataformaIntroducida);
         add(anyadir);
         setBounds(0,0,400,200);
-        setVisible(true);
         setResizable(false);
         anyadir.addActionListener(new ActionListener() {
             @Override
@@ -35,20 +35,27 @@ public class PanelAnyadirPelicula extends JDialog {
                 if(plataformaIntroducida.equals(null)){
                     PanelPeliculaConPlataforma panelPeliculaConPlataforma = new PanelPeliculaConPlataforma();
                 }else{
-                    PanelPelicula panelPelicula = new PanelPelicula();
-                    panelPelicula.setModal(true);
+//                    PanelPelicula panelPelicula = new PanelPelicula();
+//                    panelPelicula.setModal(true);
                     JLabel nombre = new JLabel("Nombre: "+nombreIntroducido.getText());
                     JLabel duracion = new JLabel("Duración en horas: "+duracionIntroducida.getText());
                     JLabel valoracion = new JLabel("Valoración: "+valoracionIntroducida.getText());
-                    panelPelicula.add(nombre);
-                    panelPelicula.add(duracion);
-                    panelPelicula.add(valoracion);
+//                    panelPelicula.add(nombre);
+//                    panelPelicula.add(duracion);
+//                    panelPelicula.add(valoracion);
 
                 }
+                p=new Pelicula(
+                  nombreIntroducido.getText(),
+                  Double.parseDouble(duracionIntroducida.getText()),
+                  Double.parseDouble(valoracionIntroducida.getText()));
 
-                dispose();
+                setVisible(false);
             }
         });
     }
 
+    public Pelicula getPelicula() {
+        return p;
+    }
 }
